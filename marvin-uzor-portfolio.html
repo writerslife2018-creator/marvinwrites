@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marvin Uzor — Freelance Content Writer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F7F5;
+    --text: #1A1A1A;
+    --text-muted: #6B6B6B;
+    --text-light: #9A9A9A;
+    --border: #E2E2DF;
+    --white: #FFFFFF;
+    --accent-navy: #1C2B3A;
+    --accent-slate: #3D5166;
+    --accent-charcoal: #3A3530;
+    --accent-sage: #3D5148;
+    --accent-terra: #6B3E26;
+    --accent-amber: #7A5C2E;
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(247, 247, 245, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text);
+    transition: width 0.25s ease;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ── LAYOUT ── */
+  section { padding: 100px 5%; }
+  .container { max-width: 1140px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+  h3 { font-size: 1rem; font-weight: 600; line-height: 1.3; }
+  p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 5%;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+  }
+
+  .hero-headline { margin-bottom: 1.5rem; }
+
+  .hero-sub {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    color: var(--text-muted);
+    max-width: 480px;
+    line-height: 1.65;
+    margin-bottom: 3rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.6rem;
+    background: var(--text);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn:hover { opacity: 0.82; transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover { color: var(--text); border-color: var(--text); opacity: 1; }
+
+  .hero-availability {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #5A9A6E;
+    flex-shrink: 0;
+  }
+
+  /* ── FEATURED WORK ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card:hover {
+    transform: scale(1.015);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.09);
+    z-index: 2;
+    background: var(--white);
+  }
+
+  .project-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 1px;
+    object-fit: cover;
+    background: #D8D8D5;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-img-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.2rem;
+    border-radius: 1px;
+  }
+
+  .project-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.55rem;
+    border-radius: 2px;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .project-body { flex: 1; }
+  .project-title { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
+  .project-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; }
+
+  .project-arrow {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .project-card:hover .project-arrow { gap: 0.6rem; color: var(--text); }
+
+  /* ── CATEGORIES ── */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .category-block {
+    padding: 2rem 1.8rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .category-block:last-child { border-right: none; }
+
+  .cat-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .cat-list { list-style: none; }
+  .cat-list li {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.4;
+  }
+  .cat-list li:last-child { border-bottom: none; }
+
+  /* ── EMAIL SECTION ── */
+  .email-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .email-card {
+    border: 1px solid var(--border);
+    padding: 1.8rem;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: default;
+  }
+
+  .email-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.07); transform: translateY(-2px); }
+
+  .email-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.4rem;
+  }
+
+  .email-icon svg { width: 18px; height: 18px; }
+  .email-card h3 { font-size: 0.88rem; }
+  .email-card p { font-size: 0.76rem; }
+
+  .email-link {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.2s;
+  }
+  .email-link:hover { color: var(--text); }
+
+  /* ── UX CASE STUDIES ── */
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .case-card {
+    border: 1px solid var(--border);
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .case-header {
+    padding: 1.8rem 2rem 1.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .case-body { padding: 1.6rem 2rem; }
+
+  .case-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0.8rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .case-row:last-child { border-bottom: none; }
+
+  .case-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    padding-top: 0.1rem;
+  }
+
+  .case-value { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; }
+
+  /* ── EDITORIAL LIST ── */
+  .editorial-list { margin-top: 2.5rem; border-top: 1px solid var(--border); }
+
+  .editorial-item {
+    display: grid;
+    grid-template-columns: 1fr 120px 140px;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.3rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: padding-left 0.2s ease;
+  }
+
+  .editorial-item:hover { padding-left: 0.6rem; }
+
+  .editorial-title { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  .editorial-cat {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-align: center;
+  }
+  .editorial-pub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: right;
+  }
+
+  /* ── PROCESS ── */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .process-step {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+
+  .process-step:last-child { border-right: none; }
+
+  .step-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--border);
+    display: block;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .step-title { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .step-desc { font-size: 0.76rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── EXPECT ── */
+  .expect-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .expect-item {
+    background: var(--bg);
+    padding: 2.5rem 1.8rem;
+    transition: background 0.2s ease;
+  }
+
+  .expect-item:hover { background: var(--white); }
+
+  .expect-icon {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .expect-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .expect-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.55; }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-photo-block {
+    aspect-ratio: 4/5;
+    background: #D8D8D5;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .about-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #2A2A2A 0%, #4A4035 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2.5rem;
+  }
+
+  .about-photo-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.18);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .about-content { padding: 1rem 0; }
+  .about-content h2 { margin-bottom: 1.5rem; }
+  .about-content p { margin-bottom: 1.2rem; }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label { font-size: 0.72rem; color: var(--text-muted); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--text); }
+  #contact .container { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+
+  #contact .section-label { color: rgba(255,255,255,0.35); }
+  #contact h2 { color: var(--white); }
+  #contact p { color: rgba(255,255,255,0.55); }
+
+  .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .contact-item:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+
+  .contact-item-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .contact-item-value {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item-value:hover { color: var(--white); }
+
+  .btn-light {
+    background: var(--white);
+    color: var(--text);
+    margin-top: 2rem;
+  }
+
+  .btn-light:hover { background: var(--bg); opacity: 1; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .footer-copy { font-size: 0.72rem; color: var(--text-light); }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--text); }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-intro { font-size: 0.85rem; color: var(--text-muted); max-width: 480px; margin-top: 0.5rem; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .category-block:nth-child(2) { border-right: none; }
+    .category-block:nth-child(3) { border-top: 1px solid var(--border); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .process-step:nth-child(2) { border-right: none; }
+    .process-step:nth-child(3) { border-top: 1px solid var(--border); }
+    .expect-grid { grid-template-columns: repeat(3, 1fr); }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    #contact .container { grid-template-columns: 1fr; gap: 3rem; }
+    .case-grid { grid-template-columns: 1fr; }
+    .editorial-item { grid-template-columns: 1fr 100px; }
+    .editorial-pub { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .categories-grid { grid-template-columns: 1fr; }
+    .category-block { border-right: none; border-bottom: 1px solid var(--border); }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-step { border-right: none; border-bottom: 1px solid var(--border); }
+    .expect-grid { grid-template-columns: repeat(2, 1fr); }
+    .email-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .editorial-item { grid-template-columns: 1fr; }
+    .editorial-cat { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Marvin Uzor</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Freelance Content Writer — Santa Fe, NM</p>
+    <h1 class="hero-headline">Words<br>that work.</h1>
+    <p class="hero-sub">I write for brands, platforms, and publications that care about clarity. Editorial, copy, UX — built to do a job.</p>
+    <div class="hero-meta">
+      <a href="#work" class="btn">View My Work →</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      <span class="hero-availability"><span class="dot"></span> Available for freelance</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FEATURED WORK -->
+<section id="work">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-label">Selected Work</span>
+        <h2>Featured Projects</h2>
+        <p class="section-intro">Writing across formats, industries, and audiences.</p>
+      </div>
+      <a href="#categories" class="btn btn-ghost" style="font-size:0.75rem;">All Categories →</a>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <a href="https://sharktankrecap.com/bucketgolf-update-shark-tank-season-16/" target="_blank" class="project-card">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg, var(--accent-navy) 0%, #2E4460 100%);">
+          <span class="project-tag" style="background: rgba(255,255,255,0.12);">Editorial</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Shark Tank Recap</div>
+          <div class="project-desc">Long-form pitch recaps and company updates. Senior Content Editor since 2023.</div>
+        </div>
+        <div class="project-arrow">Shark Tank Recap <span>→</span></div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="https://neutralzone.com/2025/03/17/non-traditional-hockey-markets-what-you-need-to-know/" target="_blank" class="project-card">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg, var(--accent-slate) 0%, #5A7A96 100%);">
+          <span class="project-tag" style="background: rgba(255,255,255,0.12);">Sports</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Non-Traditional Hockey Markets</div>
+          <div class="project-desc">Reported feature on hockey's growth beyond its traditional strongholds. Published on Neutral Zone.</div>
+        </div>
+        <div class="project-arrow">Neutral Zone <span>→</span></div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="https://www.topspeed.com/why-the-2023-subaru-ascent-is-a-highly-underrated-three-row-mid-size-suv/" target="_blank" class="project-card">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg, var(--accent-charcoal) 0%, #5A4E46 100%);">
+          <span class="project-tag" style="background: rgba(255,255,255,0.12);">Automotive</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Subaru Ascent — TopSpeed</div>
+          <div class="project-desc">In-depth SUV feature. Analytical, well-researched, written for enthusiasts and buyers.</div>
+        </div>
+        <div class="project-arrow">TopSpeed <span>→</span></div>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="https://techcultureafrica.com/chatgpt-on-whatsapp" target="_blank" class="project-card">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg, var(--accent-sage) 0%, #5C7A6B 100%);">
+          <span class="project-tag" style="background: rgba(255,255,255,0.12);">Tech / Culture</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">ChatGPT on WhatsApp</div>
+          <div class="project-desc">Explainer feature on AI accessibility for African tech audiences. Published on TechCulture Africa.</div>
+        </div>
+        <div class="project-arrow">TechCulture Africa <span>→</span></div>
+      </a>
+
+      <!-- Project 5 -->
+      <a href="https://dtlaweekly.com/10-great-places-for-kids-in-downtown-los-angeles-2/" target="_blank" class="project-card">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg, var(--accent-terra) 0%, #9A6040 100%);">
+          <span class="project-tag" style="background: rgba(255,255,255,0.12);">Lifestyle</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Best Places for Kids in DTLA</div>
+          <div class="project-desc">Location guide combining SEO structure with genuine local knowledge. Published on DTLA Weekly.</div>
+        </div>
+        <div class="project-arrow">DTLA Weekly <span>→</span></div>
+      </a>
+
+      <!-- Project 6 -->
+      <a href="https://sharktankrecap.com/bon-appesweet-update/" target="_blank" class="project-card">
+        <div class="project-img-placeholder" style="background: linear-gradient(135deg, var(--accent-amber) 0%, #A8854A 100%);">
+          <span class="project-tag" style="background: rgba(255,255,255,0.12);">Business</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Bon Appesweet — Shark Tank</div>
+          <div class="project-desc">Pitch recap and company update for a dessert brand featured on Shark Tank Season 16.</div>
+        </div>
+        <div class="project-arrow">Shark Tank Recap <span>→</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="container">
+    <span class="section-label">By Industry</span>
+    <h2>Writing Across Industries</h2>
+
+    <div class="categories-grid">
+      <div class="category-block">
+        <span class="cat-label" style="color: var(--accent-navy);">Business</span>
+        <ul class="cat-list">
+          <li>Shark Tank recaps &amp; company updates</li>
+          <li>B2B copywriting for LinkedIn &amp; brand platforms</li>
+          <li>Product launch &amp; pitch writing</li>
+        </ul>
+      </div>
+      <div class="category-block">
+        <span class="cat-label" style="color: #4A7A5A;">Health</span>
+        <ul class="cat-list">
+          <li>Researched health journalism for editorial outlets</li>
+          <li>Patient-facing UX copy for healthcare platforms</li>
+          <li>SEO health content with verified sources</li>
+        </ul>
+      </div>
+      <div class="category-block">
+        <span class="cat-label" style="color: var(--accent-slate);">Sports &amp; Auto</span>
+        <ul class="cat-list">
+          <li>Sports journalism: hockey, NASCAR, motorsports</li>
+          <li>Automotive features for enthusiast audiences</li>
+          <li>Betting &amp; iGaming content for UK markets</li>
+        </ul>
+      </div>
+      <div class="category-block">
+        <span class="cat-label" style="color: var(--accent-terra);">Entertainment</span>
+        <ul class="cat-list">
+          <li>Entertainment news &amp; celebrity coverage</li>
+          <li>Location guides &amp; city lifestyle features</li>
+          <li>Tech &amp; culture writing for digital platforms</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- EMAIL WRITING -->
+<section id="email">
+  <div class="container">
+    <span class="section-label">Email Writing</span>
+    <h2>Email Samples</h2>
+    <p class="section-intro" style="margin-bottom:0;">Direct-response and campaign emails built around a clear goal — conversion, retention, or re-engagement.</p>
+
+    <div class="email-grid">
+      <div class="email-card">
+        <div class="email-icon" style="background: #EEF2F7;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3D5166" stroke-width="2"><path d="M3 8l9 6 9-6"/><rect x="3" y="6" width="18" height="12" rx="2"/></svg>
+        </div>
+        <h3>Welcome Email Sequence</h3>
+        <p>Onboarding series for a DTC brand. Written to reduce early drop-off and build trust from day one.</p>
+        <a href="mailto:writerslife2018@gmail.com?subject=Welcome Email Sample Request" class="email-link">Request Sample →</a>
+      </div>
+      <div class="email-card">
+        <div class="email-icon" style="background: #F2F7EE;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4A7A5A" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3>Re-engagement Campaign</h3>
+        <p>Three-email sequence to reactivate cold subscribers for a subscription brand. Structured for lift, not volume.</p>
+        <a href="mailto:writerslife2018@gmail.com?subject=Re-engagement Email Sample Request" class="email-link">Request Sample →</a>
+      </div>
+      <div class="email-card">
+        <div class="email-icon" style="background: #F7F2EE;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7A5C2E" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <h3>Product Launch Announcement</h3>
+        <p>Launch email for a new product drop. Short, direct, built to drive click-through. Minimal copy, clear CTA.</p>
+        <a href="mailto:writerslife2018@gmail.com?subject=Launch Email Sample Request" class="email-link">Request Sample →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- UX WRITING -->
+<section id="ux">
+  <div class="container">
+    <span class="section-label">UX Writing</span>
+    <h2>Case Studies</h2>
+    <p class="section-intro" style="margin-bottom:0;">Copy that guides users through products clearly and without friction.</p>
+
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <span class="section-label" style="margin-bottom:0.5rem;">Case Study 01</span>
+          <h3 style="font-size:1rem;">Healthcare Platform Copy Audit</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row">
+            <span class="case-label">Problem</span>
+            <span class="case-value">A healthcare media company's four web properties had inconsistent tone, overlapping CTAs, and unclear user journeys.</span>
+          </div>
+          <div class="case-row">
+            <span class="case-label">Approach</span>
+            <span class="case-value">Full copy audit across all four domains. Mapped user flows and identified friction points throughout.</span>
+          </div>
+          <div class="case-row">
+            <span class="case-label">Solution</span>
+            <span class="case-value">Rewrote key pages with consistent, accessible tone. Consolidated duplicate content across properties.</span>
+          </div>
+          <div class="case-row">
+            <span class="case-label">Outcome</span>
+            <span class="case-value">Delivered a complete voice and tone guide, rewritten page copy, and a content consolidation roadmap.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <span class="section-label" style="margin-bottom:0.5rem;">Case Study 02</span>
+          <h3 style="font-size:1rem;">SaaS Onboarding Copy Redesign</h3>
+        </div>
+        <div class="case-body">
+          <div class="case-row">
+            <span class="case-label">Problem</span>
+            <span class="case-value">A SaaS product's onboarding flow had high drop-off at the setup stage. Users weren't completing key steps.</span>
+          </div>
+          <div class="case-row">
+            <span class="case-label">Approach</span>
+            <span class="case-value">Reviewed the full onboarding sequence and identified where instructions were vague or overcomplicated.</span>
+          </div>
+          <div class="case-row">
+            <span class="case-label">Solution</span>
+            <span class="case-value">Rewrote step-by-step microcopy, tooltips, and error messages with plain-language precision.</span>
+          </div>
+          <div class="case-row">
+            <span class="case-label">Outcome</span>
+            <span class="case-value">Cleaner, more actionable user guidance at every stage of the flow. Measurable drop-off reduction.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- EDITORIAL -->
+<section id="editorial">
+  <div class="container">
+    <span class="section-label">Editorial &amp; Long-Form</span>
+    <h2>Published Writing</h2>
+
+    <div class="editorial-list">
+      <a href="https://www.topspeed.com/why-the-2023-subaru-ascent-is-a-highly-underrated-three-row-mid-size-suv/" target="_blank" class="editorial-item">
+        <span class="editorial-title">Why the 2023 Subaru Ascent Is a Highly Underrated SUV</span>
+        <span class="editorial-cat">Automotive</span>
+        <span class="editorial-pub">TopSpeed</span>
+      </a>
+      <a href="https://neutralzone.com/2025/03/17/non-traditional-hockey-markets-what-you-need-to-know/" target="_blank" class="editorial-item">
+        <span class="editorial-title">Non-Traditional Hockey Markets: What You Need to Know</span>
+        <span class="editorial-cat">Sports</span>
+        <span class="editorial-pub">Neutral Zone</span>
+      </a>
+      <a href="https://techcultureafrica.com/chatgpt-on-whatsapp" target="_blank" class="editorial-item">
+        <span class="editorial-title">ChatGPT on WhatsApp — What It Means for Africa</span>
+        <span class="editorial-cat">Tech / Culture</span>
+        <span class="editorial-pub">TechCulture Africa</span>
+      </a>
+      <a href="https://dtlaweekly.com/10-great-places-for-kids-in-downtown-los-angeles-2/" target="_blank" class="editorial-item">
+        <span class="editorial-title">10 Great Places for Kids in Downtown Los Angeles</span>
+        <span class="editorial-cat">Lifestyle</span>
+        <span class="editorial-pub">DTLA Weekly</span>
+      </a>
+      <a href="https://sharktankrecap.com/bucketgolf-update-shark-tank-season-16/" target="_blank" class="editorial-item">
+        <span class="editorial-title">BucketGolf Shark Tank Update — Season 16</span>
+        <span class="editorial-cat">Business</span>
+        <span class="editorial-pub">Shark Tank Recap</span>
+      </a>
+      <a href="https://sharktankrecap.com/kobees-update-shark-tank-season-16/" target="_blank" class="editorial-item">
+        <span class="editorial-title">Kobee's Shark Tank Update — Season 16</span>
+        <span class="editorial-cat">Business</span>
+        <span class="editorial-pub">Shark Tank Recap</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <span class="section-label">How I Work</span>
+    <h2>My Process</h2>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <span class="step-num">01</span>
+        <div class="step-title">Understand the Brief</div>
+        <div class="step-desc">Before writing a word, I get clear on the goal, the audience, and the context. I ask questions where needed.</div>
+      </div>
+      <div class="process-step">
+        <span class="step-num">02</span>
+        <div class="step-title">Research &amp; Structure</div>
+        <div class="step-desc">I build a solid foundation first — research, outline, logical flow. Structure before sentences.</div>
+      </div>
+      <div class="process-step">
+        <span class="step-num">03</span>
+        <div class="step-title">Write &amp; Refine</div>
+        <div class="step-desc">First draft gets ideas on the page. The second and third passes are where the writing actually gets good.</div>
+      </div>
+      <div class="process-step">
+        <span class="step-num">04</span>
+        <div class="step-title">Deliver Clean</div>
+        <div class="step-desc">Work delivered ready to use — formatted, proofed, and aligned with the brief. No back-and-forth needed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- EXPECT -->
+<section id="expect">
+  <div class="container">
+    <span class="section-label">Working Together</span>
+    <h2>What to Expect</h2>
+
+    <div class="expect-grid">
+      <div class="expect-item">
+        <span class="expect-icon">◈</span>
+        <div class="expect-title">Clear Communication</div>
+        <div class="expect-desc">You'll always know where a project stands. No radio silence, no surprises.</div>
+      </div>
+      <div class="expect-item">
+        <span class="expect-icon">◻</span>
+        <div class="expect-title">Structured Thinking</div>
+        <div class="expect-desc">I come with a plan, not just words. Strategy informs every piece I write.</div>
+      </div>
+      <div class="expect-item">
+        <span class="expect-icon">◆</span>
+        <div class="expect-title">Reliable Delivery</div>
+        <div class="expect-desc">Deadlines matter. I treat them that way — consistently, without excuses.</div>
+      </div>
+      <div class="expect-item">
+        <span class="expect-icon">◉</span>
+        <div class="expect-title">Attention to Detail</div>
+        <div class="expect-desc">Tone, format, and brief alignment — covered. Always.</div>
+      </div>
+      <div class="expect-item">
+        <span class="expect-icon">◯</span>
+        <div class="expect-title">No Fluff</div>
+        <div class="expect-desc">I write what the work needs. Nothing more, nothing less.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ABOUT -->
+<section id="about" style="display:block; padding: 100px 5%;">
+  <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items:center;">
+    <div class="about-photo-block">
+      <div class="about-photo-placeholder">
+        <div class="about-photo-text">MU</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <span class="section-label">About</span>
+      <h2 style="margin-bottom: 1.5rem;">Marvin Uzor</h2>
+      <p>I'm a freelance writer, editor, and copywriter based in Santa Fe, New Mexico. I've been writing professionally since 2017 — across newsrooms, content platforms, and client brands.</p>
+      <p style="margin-top:1rem;">My background spans sports journalism at Yahoo Sports, UX content development at Trado Global, and editorial work covering automotive, entertainment, health, and iGaming verticals.</p>
+      <p style="margin-top:1rem;">I work under MARVINWRITES LLC and take on projects where clarity, quality, and precision actually matter. If you want writing that's clean, researched, and built to do a job — that's what I do.</p>
+      <div class="about-stats">
+        <div>
+          <span class="stat-num">8+</span>
+          <span class="stat-label">Years writing professionally</span>
+        </div>
+        <div>
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Verticals covered</span>
+        </div>
+        <div>
+          <span class="stat-num">$275</span>
+          <span class="stat-label">Day rate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div>
+      <span class="section-label">Get in Touch</span>
+      <h2 style="color:var(--white); margin-bottom:1rem;">Let's Work Together</h2>
+      <p>Available for freelance projects, content retainers, and editorial work. Project-based pricing available alongside day rate.</p>
+      <a href="mailto:writerslife2018@gmail.com" class="btn btn-light" style="margin-top:2rem; display:inline-flex;">Send an Email →</a>
+    </div>
+    <div class="contact-details">
+      <div class="contact-item">
+        <span class="contact-item-label">Email</span>
+        <a href="mailto:writerslife2018@gmail.com" class="contact-item-value">writerslife2018@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Portfolio</span>
+        <a href="https://marvinwrites.carrd.co/" target="_blank" class="contact-item-value">marvinwrites.carrd.co</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">LinkedIn</span>
+        <a href="https://linkedin.com/in/marvin-uzor-5a199945/" target="_blank" class="contact-item-value">linkedin.com/in/marvin-uzor</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Clips</span>
+        <a href="https://clippings.me/marvinwrites" target="_blank" class="contact-item-value">clippings.me/marvinwrites</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Based in</span>
+        <span class="contact-item-value">Santa Fe, New Mexico</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2025 MARVINWRITES LLC — Uchenna Marvin Uzor</span>
+  <ul class="footer-links">
+    <li><a href="https://marvinwrites.carrd.co/" target="_blank">Portfolio</a></li>
+    <li><a href="https://clippings.me/marvinwrites" target="_blank">Clips</a></li>
+    <li><a href="mailto:writerslife2018@gmail.com">Email</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
